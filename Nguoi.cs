@@ -18,7 +18,7 @@ namespace _001_DETAI
         public Nguoi()
         {
             this.
-            this.listMonAn = new List<Food>();
+            this.listMonAn = new List<Food>();//
         }
         public Nguoi(Nguoi a)
         {
