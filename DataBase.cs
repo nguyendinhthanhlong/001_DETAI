@@ -10,6 +10,7 @@ namespace _001_DETAI
     {
         //asdfdsa 
         //ádfsa gsgs almgk 
+        //sadf
     }
     public class DataBase : ClassCha
     {
