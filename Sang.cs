@@ -16,4 +16,4 @@ namespace _001_DETAI
             flag = 0;
         }
     }
-}//
+}
