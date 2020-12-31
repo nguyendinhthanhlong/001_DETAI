@@ -9,9 +9,11 @@ namespace _001_DETAI
     public class Sang
     {
        public List<Food> listFoodSang;
+       public int flag { get; set; }
         public Sang()
         {
             listFoodSang = new List<Food>();
+            flag = 0;
         }
     }
 }//
