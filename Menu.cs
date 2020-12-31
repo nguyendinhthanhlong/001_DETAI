@@ -8,6 +8,9 @@ namespace _001_DETAI
 {
     public class Menu
     {
+        public enum thoigian{
+            sang, trua, toi
+        }
         public Menu()
         {
 
@@ -16,15 +19,15 @@ namespace _001_DETAI
         {
             return "in";
         }
-        public string chonTime()
+        public thoigian chonThoiGian()
         {
-            return "hoat dong : Chon Time ";
+            return (thoigian)1;
         }
-        public string chonSoMon()
+        public int chonSoMon(params object[] thamso)
         {
-            return "cho so mon";
+            return 4;
         }
-        public string chonloai()
+        public string chonLoai(params object[] thamso)
         {
             return "chon loai";
         }
@@ -57,9 +60,9 @@ namespace _001_DETAI
         public string cacHanhDong()
         {
             InMonAn();
-            string time = chonTime();
-            string soMon = chonSoMon();
-            string loai = chonloai();
+            thoigian thoigian = chonThoiGian();
+            int soMon = chonSoMon(thoigian);
+            string loai = chonLoai(soMon);
 
             ThemVaoMenu();
             suaMenu();
