@@ -9,6 +9,7 @@ namespace _001_DETAI
     public abstract class ClassCha
     {
         //asdfdsa 
+        //ádfsa gsgs almgk 
     }
     public class DataBase : ClassCha
     {
