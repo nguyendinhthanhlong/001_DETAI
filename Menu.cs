@@ -15,7 +15,7 @@ namespace _001_DETAI
         {
 
         }
-        public string InMonAn()
+        public string InDSMonAn()
         {
             return "in";
         }
@@ -31,10 +31,10 @@ namespace _001_DETAI
         {
             return "chon loai";
         }
-        public string themVaMenu()
+        public string themVaoDsMonAn()
         {
             //them 
-            return "Add Meunu";
+            return "Add themVaoDsMonAn";
         }
         public string Fix(int Fix)
         {
@@ -48,7 +48,7 @@ namespace _001_DETAI
         {
             return "";
         }
-        public string suaMenu()
+        public string suaDsMonAn()
         {
             InMenu();
             Console.WriteLine("chon loai mon an can sua :\n");
@@ -59,13 +59,13 @@ namespace _001_DETAI
         }
         public string cacHanhDong()
         {
-            InMonAn();
+            InDSMonAn(); // de sau
             thoigian thoigian = chonThoiGian();
             int soMon = chonSoMon(thoigian);
             string loai = chonLoai(soMon);
 
-            ThemVaoMenu();
-            suaMenu();
+            themVaoDsMonAn();
+            suaDsMonAn();// de sau
 
             return "hanhdong";
         }

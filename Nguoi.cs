@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace _001_DETAI
 {
-    public enum time
-    {
-        sang, trua, toi
-    }
     public abstract class BaseClass
     {
 
@@ -18,23 +14,21 @@ namespace _001_DETAI
     {
         public string name { get; set; }
         public int id { get; set; }
-        public time thoiGian { get; set; }
         public List<Food> listMonAn;
         public Nguoi()
         {
+            this.
             this.listMonAn = new List<Food>();
         }
         public Nguoi(Nguoi a)
         {
             this.name = a.name;
-            this.thoiGian = thoiGian;
             this.id = id;
         }
         public Nguoi(params object[] thongtin)
         {
             this.name =(string)thongtin[0];
-            this.thoiGian = (time)thongtin[1];
-            this.id = (int)thongtin[2];
+            this.id = (int)thongtin[1];
         }
 
 
