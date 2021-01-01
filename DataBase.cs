@@ -8,7 +8,7 @@ namespace _001_DETAI
 {
     public abstract class ClassCha
     {
-          
+        
     }
     public class DataBase : ClassCha
     {
@@ -34,10 +34,7 @@ namespace _001_DETAI
                 this.listFood.Add(monan);
             }
         }
-        /*public DataBase(params object[] thamso)
-        {
-            this.listFood
-        }*/
+        
         protected string moKetNoi()
         {
             return "mo ket noi\n";

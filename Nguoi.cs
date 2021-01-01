@@ -18,7 +18,7 @@ namespace _001_DETAI
    
         public Nguoi()
         {
-            
+            this.thoigian = new thoiGian();
         }
         public Nguoi(Nguoi a)
         {

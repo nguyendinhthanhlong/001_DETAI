@@ -8,5 +8,6 @@ namespace _001_DETAI
 {
     class Test
     {
+
     }
 }
