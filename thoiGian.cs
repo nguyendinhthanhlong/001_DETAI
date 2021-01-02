@@ -13,7 +13,9 @@ namespace _001_DETAI
         public Toi toi { get; set; }
         public thoiGian()
         {
-           
+            this.sang = new Sang();
+            this.trua = new Trua();
+            this.toi = new Toi();
         }
         public thoiGian(params int[] thamso)
         {
