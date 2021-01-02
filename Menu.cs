@@ -8,21 +8,45 @@ namespace _001_DETAI
 {
     public class Menu
     {
-        public enum thoigian{
-            sang, trua, toi
-        }
+        Dictionary<int, Food> dictionary_sang = new Dictionary<int, Food>();
+        Dictionary<int, Food> dictionary_trua = new Dictionary<int, Food>();
+        Dictionary<int, Food> dictionary_toi = new Dictionary<int, Food>();
+        Food sang_1 = new Food("loai", "ga", 100000, 300, "image1");
+        Food sang_2 = new Food("loai", "com_trang", 100000, 300, "image2");
+        Food sang_3 = new Food("loai", "canh nuoc", 100000, 300, "image3");
+
+        Food trua_1 = new Food("loai", "ga", 100000, 300, "image1");
+        Food trua_2 = new Food("loai", "com_trang", 100000, 300, "image2");
+        Food trua_3 = new Food("loai", "canh nuoc", 100000, 300, "image3");
+
+        Food toi_1 = new Food("loai", "ga", 100000, 300, "image1");
+        Food toi_2 = new Food("loai", "com_trang", 100000, 300, "image2");
+        Food toi_3 = new Food("loai", "canh nuoc", 100000, 300, "image3");
+
         public Menu()
         {
+            dictionary_sang.Add(1, sang_1);
+            dictionary_sang.Add(2, sang_2);
+            dictionary_sang.Add(3, sang_3);
 
+            dictionary_trua.Add(1, trua_1);
+            dictionary_trua.Add(2, trua_2);
+            dictionary_trua.Add(3, trua_3);
+
+            dictionary_toi.Add(1, toi_1);
+            dictionary_toi.Add(2, toi_2);
+            dictionary_toi.Add(3, toi_3);
         }
         public string InDSMonAn()
         {
             return "in";
         }
-        public thoigian chonThoiGian()
+       /* public thoiGian chonThoiGian()
         {
-            return (thoigian)1;
-        }
+            thoiGian time = new thoiGian();
+           new sang();
+            return  ;
+        }*/
         public int chonSoMon(params object[] thamso)
         {
             return 4;
@@ -40,13 +64,27 @@ namespace _001_DETAI
         {
             return "fix";
         }
-        public string InMenu()
+        public void InMenu()
         {
-            return "";
+            Console.WriteLine("sang\n");
+            foreach(KeyValuePair<int,Food> bien in dictionary_sang)
+            {
+                Console.WriteLine(bien.Key + " : " + bien.Value.loaiMonAn + "  " + bien.Value.tenMonAn + "  " + bien.Value.giaTien + "  " + bien.Value.kalo + "  " + bien.Value.image);
+            }
+            Console.WriteLine("trua\n");
+            foreach (KeyValuePair<int, Food> bien in dictionary_trua)
+            {
+                Console.WriteLine(bien.Key + " : " + bien.Value.loaiMonAn + "  " + bien.Value.tenMonAn + "  " + bien.Value.giaTien + "  " + bien.Value.kalo + "  " + bien.Value.image);
+            }
+            Console.WriteLine("toi\n");
+            foreach (KeyValuePair<int, Food> bien in dictionary_toi)
+            {
+                Console.WriteLine(bien.Key + " : " + bien.Value.loaiMonAn + "  " + bien.Value.tenMonAn + "  " + bien.Value.giaTien + "  " + bien.Value.kalo + "  " + bien.Value.image);
+            }
         }
-        public string ThemVaoMenu()
+        public void ThemVaoMenu()
         {
-            return "";
+            
         }
         public string suaDsMonAn()
         {
@@ -59,11 +97,11 @@ namespace _001_DETAI
         }
         public string cacHanhDong()
         {
-            InDSMonAn(); // de sau
-            thoigian thoigian = chonThoiGian();
-            int soMon = chonSoMon(thoigian);
-            string loai = chonLoai(soMon);
-
+            InDSMonAn(); // de sau //ok
+            //ThoiGian thoigian = chonThoiGian();
+            //int soMon = chonSoMon(thoigian);
+            string loai = chonLoai(4);
+            //chonMon();
             themVaoDsMonAn();
             suaDsMonAn();// de sau
 

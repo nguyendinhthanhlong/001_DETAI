@@ -15,7 +15,7 @@ namespace _001_DETAI
         public string name { get; set; }
         public int id { get; set; }
         public thoiGian thoigian { get; set; }
-   
+        
         public Nguoi()
         {
             this.thoigian = new thoiGian();

@@ -13,13 +13,6 @@ namespace _001_DETAI
     public class DataBase : ClassCha
     {
         public List<Food> listFood;
-        Dictionary<int, Food> dictionary_sang = new Dictionary<int, Food>();
-        Food sang_1 = new Food("loai", "ga", 100000, 300, "image1");
-        Food sang_2 = new Food("loai", "com_trang", 100000, 300, "image2");
-        Food sang_3 = new Food("loai", "canh nuoc", 100000, 300, "image3");
-
-
-        
         public DataBase()
         {
 
@@ -67,8 +60,7 @@ namespace _001_DETAI
         public string truyVanMonAn()
         {
             moKetNoi();
-            chonTime();
-            chonDinhDuong();
+            //chonTime();
             //truyVanEvent.?Invoke("thasmo");
             inRaManHinhList();
             dongKetNoi();
