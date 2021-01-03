@@ -10,12 +10,9 @@ namespace _001_DETAI
     {
         static void Main(string[] args)
         {
-            DataBase data = new DataBase();
-            data.truyVanMonAn(1, 1, 1);
             Nguoi nguoi1= new Nguoi();
-         
-            Menu menu = new Menu();
-            menu.cacHanhDong(nguoi1.listTIME[1].sang.ListMonAn);
+            nguoi1.listTIME[1].sang.menu.cacHanhDong();
+   
         }
     }
 }

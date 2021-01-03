@@ -8,19 +8,20 @@ namespace _001_DETAI
 {
     public class Menu
     {
+        public Dictionary<int, Food> listMonAn { get; set; }
         public Menu()
         {
-           
+            Dictionary<int, Food> ListMonAn = new Dictionary<int, Food>();
         }
-        
+
         private void InMenu(int a,int b,int c)
         {
             DataBase data = new DataBase();
             data.truyVanMonAn(a,b,c);
         }
-        public delegate void DelegateChonMon(Dictionary<int, Food> listMonAn, int n);
-        public delegate void DelegateIn(Dictionary<int, Food> listMonAn);
-        public void chonMon(DelegateChonMon upDateList, Dictionary<int, Food> listMonAn)
+        public delegate void DelegateChonMon(int n);
+        public delegate void DelegateIn();
+        public void chonMon(DelegateChonMon upDateList)
         {
             int n = 0;
             while (n != -1)
@@ -28,44 +29,44 @@ namespace _001_DETAI
                 Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
                 Console.WriteLine("n = ");
                 n = int.Parse(Console.ReadLine());
-                upDateList(listMonAn, n);
+                upDateList(n);
             }
         }
-        public void upDateList(Dictionary<int, Food> listMonAn,int n)
+        public void upDateList(int n)
         {
             DataBase a = new DataBase();
             if (a.dictionary_sang.ContainsKey(n))
             {
                 // them vao List
-                listMonAn[n] = a.dictionary_sang[n];
+                this.listMonAn[n] = a.dictionary_sang[n];
             }
             if (a.dictionary_trua.ContainsKey(n))
             {
                 // them vao List
-                listMonAn[n] = a.dictionary_trua[n];
+                this.listMonAn[n] = a.dictionary_trua[n];
             }
             if (a.dictionary_toi.ContainsKey(n))
             {
                 // them vao List
-                listMonAn[n] = a.dictionary_toi[n];
+                this.listMonAn[n] = a.dictionary_toi[n];
             }
         }
-        public void InDsMonAn(DelegateIn Inds, Dictionary<int, Food> listMonAn)
+        public void InDsMonAn(DelegateIn Inds)
         {
-            Inds(listMonAn);
+            Inds();
         }
-        private void Inds(Dictionary<int, Food> listMonAn)
+        private void Inds()
         {
-            foreach (KeyValuePair<int, Food> dictionary in listMonAn)
+            foreach (KeyValuePair<int, Food> dictionary in this.listMonAn)
             {
                 Console.WriteLine(dictionary.Key + "  " + dictionary.Value.tenMonAn + "  " + dictionary.Value.loaiMonAn
                     + "  " + dictionary.Value.kalo + "  " + dictionary.Value.image + "  " + dictionary.Value.giaTien);
             }
         }
-        public void suaDsMonAn(DelegateChonMon Fix,Dictionary<int,Food> listMonAn)
+        public void suaDsMonAn(DelegateChonMon Fix)
         {
 
-            InDsMonAn(Inds, listMonAn);
+            InDsMonAn(Inds);
 
             int n = 0;
             while (n != -1)
@@ -73,19 +74,19 @@ namespace _001_DETAI
                 Console.WriteLine("nhap mon can sua, khong sua nua thi nhap -1");
                 Console.WriteLine(" n = ");
                 int delete = int.Parse(Console.ReadLine());
-                Fix(listMonAn, delete);
+                Fix(delete);
             }
-            chonMon(upDateList, listMonAn);
+            chonMon(upDateList);
         }
-        private void Fix(Dictionary<int, Food> listMonAn, int delete) 
+        private void Fix(int delete) 
         {
-            listMonAn.Remove(delete);
+            this.listMonAn.Remove(delete);
         }
-        public string cacHanhDong(Dictionary<int,Food> listMonAn)
+        public string cacHanhDong()
         {
             InMenu(1,1,1);
-            chonMon(upDateList,listMonAn);
-            suaDsMonAn(upDateList,listMonAn);
+            chonMon(upDateList);
+            suaDsMonAn(upDateList);
 
             return "hanhdong";
         }

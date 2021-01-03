@@ -19,7 +19,7 @@ namespace _001_DETAI
         public List<ThoiGian> listTIME { get; set; }
         public Nguoi()
         {
-            this.listTIME = new List<ThoiGian>(100);
+            this.listTIME = new List<ThoiGian>(0);
         }
         public Nguoi(Nguoi a)
         {

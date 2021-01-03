@@ -8,10 +8,10 @@ namespace _001_DETAI
 {
     public class Sang
     {
-        public Dictionary<int, Food> ListMonAn { get; set; }
+        public Menu menu;
         public Sang()
         {
-            Dictionary<int, Food> ListMonAn = new Dictionary<int, Food>();
+            menu = new Menu();
         }
     }
 }
