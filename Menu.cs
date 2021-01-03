@@ -20,7 +20,7 @@ namespace _001_DETAI
         }
         public delegate void DelegateChonMon(Dictionary<int, Food> listMonAn, int n);
         public delegate void DelegateIn(Dictionary<int, Food> listMonAn);
-        private void chonMon(DelegateChonMon upDateList, Dictionary<int, Food> listMonAn)
+        public void chonMon(DelegateChonMon upDateList, Dictionary<int, Food> listMonAn)
         {
             int n = 0;
             while (n != -1)
@@ -31,7 +31,7 @@ namespace _001_DETAI
                 upDateList(listMonAn, n);
             }
         }
-        private void upDateList(Dictionary<int, Food> listMonAn,int n)
+        public void upDateList(Dictionary<int, Food> listMonAn,int n)
         {
             DataBase a = new DataBase();
             if (a.dictionary_sang.ContainsKey(n))
@@ -50,7 +50,7 @@ namespace _001_DETAI
                 listMonAn[n] = a.dictionary_toi[n];
             }
         }
-        private void InDsMonAn(DelegateIn Inds, Dictionary<int, Food> listMonAn)
+        public void InDsMonAn(DelegateIn Inds, Dictionary<int, Food> listMonAn)
         {
             Inds(listMonAn);
         }
@@ -62,7 +62,7 @@ namespace _001_DETAI
                     + "  " + dictionary.Value.kalo + "  " + dictionary.Value.image + "  " + dictionary.Value.giaTien);
             }
         }
-        private void suaDsMonAn(DelegateChonMon Fix,Dictionary<int,Food> listMonAn)
+        public void suaDsMonAn(DelegateChonMon Fix,Dictionary<int,Food> listMonAn)
         {
 
             InDsMonAn(Inds, listMonAn);
@@ -75,7 +75,7 @@ namespace _001_DETAI
                 int delete = int.Parse(Console.ReadLine());
                 Fix(listMonAn, delete);
             }
-
+            chonMon(upDateList, listMonAn);
         }
         private void Fix(Dictionary<int, Food> listMonAn, int delete) 
         {
