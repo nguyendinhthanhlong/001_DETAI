@@ -12,41 +12,23 @@ namespace _001_DETAI
         {
            
         }
-        public string InDSMonAn()
-        {
-            return "in";
-        }
-        public int chonSoMon(params object[] thamso)
-        {
-            return 4;
-        }
-        public string chonLoai(params object[] thamso)
-        {
-            return "chon loai";
-        }
-        public string themVaoDsMonAn()
-        {
-            //them 
-            return "Add themVaoDsMonAn";
-        }
-        public string Fix(int Fix)
-        {
-            return "fix";
-        }
+        
         public void InMenu()
         {
             DataBase data = new DataBase();
             data.truyVanMonAn(0,1,1);
         }
-        public void chonMon(Dictionary<int, Food> listMonAn)
+        public delegate void DelegateChonMon(Dictionary<int, Food> listMonAn, int n);
+
+        public void chonMon(DelegateChonMon upDateList, Dictionary<int, Food> listMonAn)
         {
             int n = 0;
-            while(n!= -1)
+            while (n != -1)
             {
                 Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
                 Console.WriteLine("n = ");
                 n = int.Parse(Console.ReadLine());
-                upDateList(listMonAn,n);
+                upDateList(listMonAn, n);
             }
         }
         public void upDateList(Dictionary<int, Food> listMonAn,int n)
@@ -55,22 +37,33 @@ namespace _001_DETAI
             if (a.dictionary_sang.ContainsKey(n))
             {
                 // them vao List
+                listMonAn[n] = a.dictionary_sang[n];
+            }
+            if (a.dictionary_trua.ContainsKey(n))
+            {
+                // them vao List
+                listMonAn[n] = a.dictionary_trua[n];
+            }
+            if (a.dictionary_toi.ContainsKey(n))
+            {
+                // them vao List
+                listMonAn[n] = a.dictionary_toi[n];
             }
         }
-        public string suaDsMonAn()
+        public void suaDsMonAn(DelegateChonMon upDateList,Dictionary<int,Food> ListMonAn)
         {
-            InMenu();
+            InDsList(ListMonAn);
             Console.WriteLine("chon loai mon an can sua :\n");
             int fix = int.Parse(Console.ReadLine());
-            Fix(fix);
-            InMenu();
-            return "";
+            
+
+            
         }
         public string cacHanhDong(Dictionary<int,Food> listMonAn)
         {
             InMenu();
-            chonMon(listMonAn);
-            suaDsMonAn();// de sau
+            chonMon(upDateList,listMonAn);
+            suaDsMonAn(upDateList,listMonAn);//dang lam
 
             return "hanhdong";
         }
