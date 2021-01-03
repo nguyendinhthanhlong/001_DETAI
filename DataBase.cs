@@ -56,7 +56,6 @@ namespace _001_DETAI
             dictionary_toi.Add(14, toi_4);
             dictionary_toi.Add(15, toi_5);
         }
-
     }
     public class DataBase : ClassCha
     {
@@ -78,6 +77,8 @@ namespace _001_DETAI
         public event TruyVanHandel truyVanEvent;
 
         private delegate void myDelegate(Dictionary<int,Food> diction);
+        public delegate void DelegateIn(Dictionary<int, Food> diction);
+
         protected string moKetNoi()
         {
             return "mo ket noi\n";
@@ -86,13 +87,18 @@ namespace _001_DETAI
         {
             return "dong ket noi\n";
         }
-        public void inList(Dictionary<int,Food> diction)
+
+        private void inList(Dictionary<int,Food> diction)
         {
             foreach (KeyValuePair<int, Food> dictionary in diction)
             {
                 Console.WriteLine(dictionary.Key + "  " + dictionary.Value.tenMonAn + "  " + dictionary.Value.loaiMonAn
                     + "  " + dictionary.Value.kalo + "  " + dictionary.Value.image + "  " + dictionary.Value.giaTien);
             }
+        }
+        private void In(DelegateIn inList, Dictionary<int, Food> diction)
+        {
+            inList(diction);
         }
         private void inRaManHinhList(myDelegate inList,int sang,int trua,int toi)
         {

@@ -20,9 +20,10 @@ namespace _001_DETAI
         }
         public thoiGian(params int[] thamso)
         {
-            this.sang.flag = thamso[0];
-            this.trua.flag = thamso[1];
-            this.toi.flag = thamso[2];
+            this.sang = new Sang();
+            this.trua = new Trua();
+            this.toi = new Toi();
+            
         }
     }
 }

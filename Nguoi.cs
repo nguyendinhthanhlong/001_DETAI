@@ -8,33 +8,31 @@ namespace _001_DETAI
 {
     public abstract class BaseClass
     {
-
+        // cho param la de add 1 list luon
     }
     public class Nguoi:BaseClass
     {
         public string name { get; set; }
         public int id { get; set; }
-        public thoiGian thoigian { get; set; }
         
+        public List<thoiGian> listTIME { get; set; }
         public Nguoi()
         {
-            this.thoigian = new thoiGian();
+            this.listTIME = new List<thoiGian>();
         }
         public Nguoi(Nguoi a)
         {
+            this.listTIME = new List<thoiGian>();
             this.name = a.name;
             this.id = id;
-            this.thoigian.sang = a.thoigian.sang;
-            this.thoigian.trua = a.thoigian.trua;
-            this.thoigian.toi = a.thoigian.toi;
+            this.listTIME = a.listTIME;
         }
         public Nguoi(params object[] thongtin)
         {
+            this.listTIME = new List<thoiGian>();
             this.name =(string)thongtin[0];
             this.id = (int)thongtin[1];
-            this.thoigian.sang = (Sang)thongtin[2];
-            this.thoigian.trua = (Trua)thongtin[3];
-            this.thoigian.toi  = (Toi)thongtin[4];
+            this.listTIME = (List<thoiGian>)thongtin[2];
         }
     }
 }
