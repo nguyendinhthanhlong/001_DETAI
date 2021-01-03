@@ -36,5 +36,7 @@ namespace _001_DETAI
             this.thoigian.trua = (Trua)thongtin[3];
             this.thoigian.toi  = (Toi)thongtin[4];
         }
+
+
     }
 }

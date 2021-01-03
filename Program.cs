@@ -10,8 +10,11 @@ namespace _001_DETAI
     {
         static void Main(string[] args)
         {
-            Menu menu1 = new Menu();
-            menu1.InMenu();
+            DataBase data = new DataBase();
+            foreach(KeyValuePair<int,Food> name in data.dictionary_sang)
+            {
+                Console.WriteLine(name.Key + "  " + name.Value.tenMonAn);
+            }
           
         }
     }
