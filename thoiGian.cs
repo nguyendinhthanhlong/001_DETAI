@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 //
 namespace _001_DETAI
 {
-    public class thoiGian
+    public class thoiGian 
     {
+
         public Trua trua { get; set; }
         public Sang sang { get; set; }
         public Toi toi { get; set; }

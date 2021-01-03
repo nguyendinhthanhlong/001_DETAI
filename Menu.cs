@@ -35,25 +35,27 @@ namespace _001_DETAI
         }
         public void InMenu()
         {
-            /*Console.WriteLine("sang\n");
-            foreach(KeyValuePair<int,Food> bien in dictionary_sang)
-            {
-                Console.WriteLine(bien.Key + " : " + bien.Value.loaiMonAn + "  " + bien.Value.tenMonAn + "  " + bien.Value.giaTien + "  " + bien.Value.kalo + "  " + bien.Value.image);
-            }
-            Console.WriteLine("trua\n");
-            foreach (KeyValuePair<int, Food> bien in dictionary_trua)
-            {
-                Console.WriteLine(bien.Key + " : " + bien.Value.loaiMonAn + "  " + bien.Value.tenMonAn + "  " + bien.Value.giaTien + "  " + bien.Value.kalo + "  " + bien.Value.image);
-            }
-            Console.WriteLine("toi\n");
-            foreach (KeyValuePair<int, Food> bien in dictionary_toi)
-            {
-                Console.WriteLine(bien.Key + " : " + bien.Value.loaiMonAn + "  " + bien.Value.tenMonAn + "  " + bien.Value.giaTien + "  " + bien.Value.kalo + "  " + bien.Value.image);
-            }*/
+            DataBase data = new DataBase();
+            data.truyVanMonAn(0,1,1);
         }
-        public void ThemVaoMenu()
+        public void chonMon(Dictionary<int, Food> listMonAn)
         {
-            
+            int n = 0;
+            while(n!= -1)
+            {
+                Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
+                Console.WriteLine("n = ");
+                n = int.Parse(Console.ReadLine());
+                upDateList(listMonAn,n);
+            }
+        }
+        public void upDateList(Dictionary<int, Food> listMonAn,int n)
+        {
+            DataBase a = new DataBase();
+            if (a.dictionary_sang.ContainsKey(n))
+            {
+                // them vao List
+            }
         }
         public string suaDsMonAn()
         {
@@ -64,34 +66,13 @@ namespace _001_DETAI
             InMenu();
             return "";
         }
-        public string cacHanhDong()
+        public string cacHanhDong(Dictionary<int,Food> listMonAn)
         {
-            InDSMonAn(); // de sau //ok
-            //ThoiGian thoigian = chonThoiGian();
-            //int soMon = chonSoMon(thoigian);
-            string loai = chonLoai(4);
-            //chonMon();
-            themVaoDsMonAn();
+            InMenu();
+            chonMon(listMonAn);
             suaDsMonAn();// de sau
 
             return "hanhdong";
         }
-        /*public static Food operator +(Food food1, Food food2)
-        {
-            Food kq = new Food();
-            kq.giaTien = food1.giaTien + food2.giaTien;
-            return kq;
-        }*/
-
-
-
-        /*public string hoatDong()
-        {
-            In();
-            chonTime();
-            chonSoMon();
-            chonloai();
-            return ;
-        }*/
     }
 }

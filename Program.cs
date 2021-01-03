@@ -11,11 +11,9 @@ namespace _001_DETAI
         static void Main(string[] args)
         {
             DataBase data = new DataBase();
-            foreach(KeyValuePair<int,Food> name in data.dictionary_sang)
-            {
-                Console.WriteLine(name.Key + "  " + name.Value.tenMonAn);
-            }
-          
+            data.truyVanMonAn(1, 1, 1);
+
+
         }
     }
 }
