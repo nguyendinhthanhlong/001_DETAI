@@ -13,7 +13,13 @@ namespace _001_DETAI
     }
     public class Nguoi:BaseClass
     {
-        public string name { get; set; }
+        private string name; // field
+
+        public string Name   // property
+        {
+            get { return name; }   // get method
+            set { name = value; }  // set method
+        }
         public int id { get; set; }
         
         public List<ThoiGian> listTIME { get; set; }

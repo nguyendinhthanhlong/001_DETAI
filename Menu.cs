@@ -9,6 +9,7 @@ namespace _001_DETAI
     public class Menu
     {
         public Dictionary<int, Food> listMonAn;
+        
         public Menu()
         {
             // chua danh sach mon an cua menu.sang
