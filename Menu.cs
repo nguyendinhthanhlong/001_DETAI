@@ -33,11 +33,10 @@ namespace _001_DETAI
             n = int.Parse(Console.ReadLine());
             while (n != -1)
             {
+                tempt.Add(n, upDateList(n));
                 Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
                 Console.WriteLine("n = ");
                 n = int.Parse(Console.ReadLine());
-                tempt.Add(n,upDateList(n));
-                /*upDateList(n);*/
             }
             return tempt;
         }
@@ -99,6 +98,7 @@ namespace _001_DETAI
             this.listMonAn = suaDsMonAn(listMonAn);
             Console.WriteLine("===========================================\ncac mon an cua ban la \n");
             InDsMonAn(Inds, listMonAn);
+            Console.WriteLine("_________________________\n\n");
             return "hanhdong";
         }
     }

@@ -11,8 +11,18 @@ namespace _001_DETAI
         static void Main(string[] args)
         {
             Nguoi nguoi1= new Nguoi();
-            nguoi1.listTIME[1].sang.menu.cacHanhDong();
-            
+            Console.WriteLine("nhap ngay can chon mon an ");
+            int ngay = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("chon buoi sang");
+            nguoi1.listTIME[ngay].sang.menu.cacHanhDong();
+
+            Console.WriteLine("chon buoi trua");
+            nguoi1.listTIME[ngay].trua.menu.cacHanhDong();
+
+            Console.WriteLine("chon buoi toi");
+            nguoi1.listTIME[ngay].toi.menu.cacHanhDong();
+
         }
     }
 }
