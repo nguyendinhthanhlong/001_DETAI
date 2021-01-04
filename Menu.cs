@@ -23,11 +23,14 @@ namespace _001_DETAI
             data.truyVanMonAn(a,b,c);
         }
         public delegate Food DelegateChonMon(int n);
-        public delegate void DelegateIn();
+        public delegate void DelegateIn(Dictionary<int, Food> listCu);
         public Dictionary<int,Food> chonMon(DelegateChonMon upDateList)
         {
             Dictionary<int,Food> tempt = new Dictionary<int, Food>();
-            int n = 0;
+            int n;
+            Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
+            Console.WriteLine("n = ");
+            n = int.Parse(Console.ReadLine());
             while (n != -1)
             {
                 Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
@@ -61,29 +64,31 @@ namespace _001_DETAI
             }
             return null;
         }
-        public void InDsMonAn(DelegateIn Inds)
+        public void InDsMonAn(DelegateIn Inds, Dictionary<int, Food> listCu)
         {
-            Inds();
+            Inds(listCu);
         }
-        private void Inds()
+        public void Inds(Dictionary<int, Food> list)
         {
-            foreach (KeyValuePair<int, Food> dictionary in this.listMonAn)
+            foreach (KeyValuePair<int, Food> d in list)
             {
-                Console.WriteLine(dictionary.Key + "  " + dictionary.Value.tenMonAn + "  " + dictionary.Value.loaiMonAn
-                    + "  " + dictionary.Value.kalo + "  " + dictionary.Value.image + "  " + dictionary.Value.giaTien);
+                Console.WriteLine(d.Key + "  " + d.Value.tenMonAn + "  " + d.Value.loaiMonAn
+                    + "  " + d.Value.kalo + "  " + d.Value.image + "  " + d.Value.giaTien);
             }
         }
-        public Dictionary<int, Food> suaDsMonAn(DelegateChonMon Fix, Dictionary<int, Food> listCu)
+        public Dictionary<int, Food> suaDsMonAn(Dictionary<int, Food> listCu)
         {
-            InDsMonAn(Inds);
             Dictionary<int, Food> tempt = new Dictionary<int, Food>(listCu);
-            int n = 0;
-            while (n != -1)
+            int delete;
+            Console.WriteLine("nhap mon can sua, khong sua nua thi nhap -1");
+            Console.WriteLine(" n = ");
+            delete = int.Parse(Console.ReadLine());
+            while (delete != -1)
             {
-                Console.WriteLine("nhap mon can sua, khong sua nua thi nhap -1");
-                Console.WriteLine(" n = ");
-                int delete = int.Parse(Console.ReadLine());
-                tempt.Remove(delete);
+                    tempt.Remove(delete);
+                    Console.WriteLine("nhap mon can sua, khong sua nua thi nhap -1");
+                    Console.WriteLine(" n = ");
+                    delete = int.Parse(Console.ReadLine());
             }
             return tempt;
         }
@@ -91,8 +96,9 @@ namespace _001_DETAI
         {
             InMenu(1,1,1);
             this.listMonAn = chonMon(upDateList);
-            this.listMonAn = suaDsMonAn(upDateList,listMonAn);
-
+            this.listMonAn = suaDsMonAn(listMonAn);
+            Console.WriteLine("===========================================\ncac mon an cua ban la \n");
+            InDsMonAn(Inds, listMonAn);
             return "hanhdong";
         }
     }
