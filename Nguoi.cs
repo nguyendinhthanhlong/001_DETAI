@@ -17,10 +17,9 @@ namespace _001_DETAI
         public int id { get; set; }
         
         public List<ThoiGian> listTIME { get; set; }
-        // mac dinh la co ngay 0-99 : 100 ngay chua co thong tin mon an
         public Nguoi()
         {
-            this.listTIME = new List<ThoiGian>();
+            this.listTIME = new List<ThoiGian>(100);
             for(int i = 0; i < 100; i++)
             {
                 ThoiGian a = new ThoiGian();

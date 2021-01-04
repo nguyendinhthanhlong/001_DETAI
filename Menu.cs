@@ -8,7 +8,7 @@ namespace _001_DETAI
 {
     public class Menu
     {
-        public Dictionary<int, Food> listMonAn { get; set; }
+        public Dictionary<int, Food> listMonAn;
         public Menu()
         {
             // chua danh sach mon an cua menu.sang
@@ -22,37 +22,44 @@ namespace _001_DETAI
             DataBase data = new DataBase();
             data.truyVanMonAn(a,b,c);
         }
-        public delegate void DelegateChonMon(int n);
+        public delegate Food DelegateChonMon(int n);
         public delegate void DelegateIn();
-        public void chonMon(DelegateChonMon upDateList)
+        public Dictionary<int,Food> chonMon(DelegateChonMon upDateList)
         {
+            Dictionary<int,Food> tempt = new Dictionary<int, Food>();
             int n = 0;
             while (n != -1)
             {
                 Console.WriteLine("nhap mon can chon, khong chon nua thi nhap -1");
                 Console.WriteLine("n = ");
                 n = int.Parse(Console.ReadLine());
-                upDateList(n);
+                tempt.Add(n,upDateList(n));
+                /*upDateList(n);*/
             }
+            return tempt;
         }
-        public void upDateList(int n)
+        public Food upDateList(int n)
         {
             DataBase a = new DataBase();
             if (a.dictionary_sang.ContainsKey(n))
             {
                 // them vao List
-                this.listMonAn.Add(n,a.dictionary_sang[n]);
+                //this.listMonAn.Add(n,a.dictionary_sang[n]);
+                return a.dictionary_sang[n];
             }
             if (a.dictionary_trua.ContainsKey(n))
             {
                 // them vao List
-                this.listMonAn.Add(n,a.dictionary_trua[n]);
+                //this.listMonAn.Add(n,a.dictionary_trua[n]);
+                return a.dictionary_trua[n];
             }
             if (a.dictionary_toi.ContainsKey(n))
             {
                 // them vao List
-                this.listMonAn.Add(n,a.dictionary_toi[n]);
+                //this.listMonAn.Add(n,a.dictionary_toi[n]);
+                return a.dictionary_toi[n];
             }
+            return null;
         }
         public void InDsMonAn(DelegateIn Inds)
         {
@@ -87,7 +94,8 @@ namespace _001_DETAI
         public string cacHanhDong()
         {
             InMenu(1,1,1);
-            chonMon(upDateList);
+            this.listMonAn = chonMon(upDateList);
+                //chonMon(upDateList));
             suaDsMonAn(upDateList);
 
             return "hanhdong";
