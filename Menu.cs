@@ -73,30 +73,25 @@ namespace _001_DETAI
                     + "  " + dictionary.Value.kalo + "  " + dictionary.Value.image + "  " + dictionary.Value.giaTien);
             }
         }
-        public void suaDsMonAn(DelegateChonMon Fix)
+        public Dictionary<int, Food> suaDsMonAn(DelegateChonMon Fix, Dictionary<int, Food> listCu)
         {
             InDsMonAn(Inds);
-
+            Dictionary<int, Food> tempt = new Dictionary<int, Food>(listCu);
             int n = 0;
             while (n != -1)
             {
                 Console.WriteLine("nhap mon can sua, khong sua nua thi nhap -1");
                 Console.WriteLine(" n = ");
                 int delete = int.Parse(Console.ReadLine());
-                Fix(delete);
+                tempt.Remove(delete);
             }
-            chonMon(upDateList);
-        }
-        private void Fix(int delete) 
-        {
-            this.listMonAn.Remove(delete);
+            return tempt;
         }
         public string cacHanhDong()
         {
             InMenu(1,1,1);
             this.listMonAn = chonMon(upDateList);
-                //chonMon(upDateList));
-            suaDsMonAn(upDateList);
+            this.listMonAn = suaDsMonAn(upDateList,listMonAn);
 
             return "hanhdong";
         }
