@@ -11,7 +11,10 @@ namespace _001_DETAI
         public Dictionary<int, Food> listMonAn { get; set; }
         public Menu()
         {
-            Dictionary<int, Food> ListMonAn = new Dictionary<int, Food>();
+            // chua danh sach mon an cua menu.sang
+            //                               .trua
+            //                               .toi
+            Dictionary<int, Food> ListMonAn = new Dictionary<int, Food>(100);
         }
 
         private void InMenu(int a,int b,int c)
@@ -38,17 +41,17 @@ namespace _001_DETAI
             if (a.dictionary_sang.ContainsKey(n))
             {
                 // them vao List
-                this.listMonAn[n] = a.dictionary_sang[n];
+                this.listMonAn.Add(n,a.dictionary_sang[n]);
             }
             if (a.dictionary_trua.ContainsKey(n))
             {
                 // them vao List
-                this.listMonAn[n] = a.dictionary_trua[n];
+                this.listMonAn.Add(n,a.dictionary_trua[n]);
             }
             if (a.dictionary_toi.ContainsKey(n))
             {
                 // them vao List
-                this.listMonAn[n] = a.dictionary_toi[n];
+                this.listMonAn.Add(n,a.dictionary_toi[n]);
             }
         }
         public void InDsMonAn(DelegateIn Inds)
@@ -65,7 +68,6 @@ namespace _001_DETAI
         }
         public void suaDsMonAn(DelegateChonMon Fix)
         {
-
             InDsMonAn(Inds);
 
             int n = 0;
